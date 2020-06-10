@@ -9,9 +9,24 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFC1E2E0">
-        
-        <ListView x:Name="DoneItemsList" ItemsSource="{x:Bind doneData}" SelectionMode="Multiple" Grid.Row="1" Grid.RowSpan="2" Margin ="20, 40, 0, 0">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="50,50,0,0" BorderBrush="Black" Grid.Row="1" Grid.RowSpan="3" Margin="0,20,0,0">
+            <Rectangle Fill="#FFC1E2E0" Stretch="UniformToFill" />
+        </Border>
+
+        <!-- Title header -->
+        <TextBlock Text="Completed Tasks" FontSize= "36" Grid.Row="0" VerticalAlignment="Bottom" Margin ="36,0,-16,0"/>
+
+        <!-- Displays the completed tasks -->
+        <ListView x:Name="DoneItemsList" ItemsSource="{x:Bind doneData}" Grid.Row="1" Grid.RowSpan="2" Margin ="20, 40, 0, 0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="GridViewItem">
                     <Setter Property="Margin" Value="0, 30, 34, 5"/>
@@ -21,10 +36,13 @@
                 <DataTemplate x:DataType="data:ToDoItem">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="20" Text="{x:Bind Title}" />
-                        <TextBlock FontSize="16" Text="{x:Bind Date}" />
+                        <TextBlock FontSize="16" Text="{x:Bind StringDate}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <!-- Button to go back -->
+        <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" FontSize="36" ToolTipService.ToolTip="Back" Click="BackButton_Click" Grid.Row="0" VerticalAlignment="Top" />
     </Grid>
 </Page>

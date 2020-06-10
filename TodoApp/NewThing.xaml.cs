@@ -52,6 +52,7 @@ namespace TodoApp
             {
                 newItem.Title = InputBox.Text;
                 newItem.Date = Cal.Date.Value.Date;
+                newItem.StringDate = Cal.Date.Value.Date.ToString("MM/dd/yyyy");
                 addItem(newItem);
                 
             }

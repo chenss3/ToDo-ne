@@ -14,6 +14,11 @@
 
 
     <Grid Background="#FFC1E2E0">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition IsStaggeringEnabled="True"/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -45,9 +50,9 @@
 
 
         <!-- Controls the make new list button -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="2">
+        <StackPanel Name="NewListPan" Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="2">
             <Button Name="MakeNewList" FontFamily="Segoe MDL2 Assets" Content="&#xE109;" FontSize="36"  Click="MakeNewList_Click" Grid.Row="3" VerticalAlignment="Bottom"/>
-            <TextBlock Text="Make New List" FontSize="36" Grid.Row ="3" VerticalAlignment ="Bottom" Margin="15, 0, 0, 0"/>
+            <TextBlock Name ="MakeNewListText" Text="Make New List" FontSize="36" Grid.Row ="3" VerticalAlignment ="Bottom" Margin="15, 0, 0, 0"/>
         </StackPanel>
 
         <!-- Dialog box will appear when user wants to make a new list -->
@@ -59,7 +64,7 @@
 
 
         <!-- ToggleSwitch will switch the background image -->
-        <ToggleSwitch Name="Switch" OffContent="Day Mode" OnContent="Night Mode" IsOn="False" Toggled="Switch_Toggled" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,74,0" Width="125">
+        <ToggleSwitch Name="Switch" OffContent="Day Mode" OnContent="Night Mode" IsOn="False" Toggled="Switch_Toggled" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,74,0" Width="125" RequestedTheme="Default">
             <ToggleSwitch.Resources>
                 <muxc:TeachingTip x:Name="ModeTip" Target="{x:Bind Switch}" Title="Change Modes" Subtitle="Toggle the switch to change your background from day mode to night mode.">
                 </muxc:TeachingTip>
@@ -68,7 +73,6 @@
 
         <!-- Will display all of my ToDo Lists -->
         <GridView x:Name="ItemsList" ItemsSource="{x:Bind allStuff}" SelectionMode="Single" Grid.Row="1" Grid.RowSpan="2" Margin ="20, 40, 0, 0" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" Grid.ColumnSpan="2">
-
 
             <!-- Flyout menu that will pop up when you right click on a list -->
             <GridView.Resources>
@@ -102,10 +106,10 @@
         <muxc:TeachingTip x:Name="ListTip" Title="Go to your todo lists" Subtitle="Click on the name of you todo list to see its tasks">
         </muxc:TeachingTip>
 
-        <!-- Content Dialog that pops up to pronpt the user to create a new list -->
-        <ContentDialog x:Name="RenameDialog" PrimaryButtonText="Ok" CloseButtonText="Cancel" DefaultButton="Primary" Grid.Row="1" Grid.ColumnSpan="2">
+        <!-- Content Dialog that pops up to pronpt the user to rename list -->
+        <ContentDialog x:Name="RenameDialog" PrimaryButtonText="Ok" CloseButtonText="Cancel" DefaultButton="Primary" Grid.Row="1" Grid.ColumnSpan="2" Height="170">
             <StackPanel>
-                <TextBox Name ="NewNameBox" Header="Enter a new name:" FontSize ="20" />
+                <TextBox Name ="NewNameBox" FontSize ="20" Header= "Enter a new name:"/>
             </StackPanel>
         </ContentDialog>
 

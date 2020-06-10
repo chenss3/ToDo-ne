@@ -21,7 +21,7 @@ using Windows.UI.ViewManagement;
 namespace TodoApp
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// This is the main page that you will first navigate to, displaying all of the ToDo lists
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -43,18 +43,6 @@ namespace TodoApp
                 ModeTip.IsOpen = true;
                 haveExplainedMode = true; 
             }
-
-
-
-            /* Will be used when debugging - automatically adds a ToDo list called school when run. 
-            ToDoData myData = new ToDoData
-            {
-                Title = "School",
-                ToDoItems = new ObservableCollection<ToDoItem>()
-            };
-            allStuff.Add(myData);
-            */
-
 
         }
         
@@ -79,6 +67,7 @@ namespace TodoApp
 
                 if (!haveExplainedList)
                 {
+                    ModeTip.IsOpen = false; 
                     ListTip.IsOpen = true;
                     haveExplainedList = true;
                 }
@@ -108,6 +97,7 @@ namespace TodoApp
 
         }
 
+        //When rename is clicked on the flyout menu, you can rename your list into something different
         private async void Rename_Click(object sender, RoutedEventArgs e)
         {
             NewNameBox.Text = "";
@@ -136,11 +126,29 @@ namespace TodoApp
                 Day.Visibility = Visibility.Collapsed;
                 Night.Visibility = Visibility.Visible;
                 BGRect.Visibility = Visibility.Visible;
+                Switch.RequestedTheme = ElementTheme.Dark;
+                MakeNewList.RequestedTheme = ElementTheme.Dark;
+                MakeNewListText.RequestedTheme = ElementTheme.Dark;
+                Header.RequestedTheme = ElementTheme.Dark;
+                ListDialog.RequestedTheme = ElementTheme.Dark;
+                RenameDialog.RequestedTheme = ElementTheme.Dark;
+                ItemsList.RequestedTheme = ElementTheme.Dark;
             }
             else if (!Switch.IsOn){
                 Day.Visibility = Visibility.Visible;
                 Night.Visibility = Visibility.Collapsed;
                 BGRect.Visibility = Visibility.Collapsed;
+
+                Switch.RequestedTheme = ElementTheme.Light;
+                MakeNewList.RequestedTheme = ElementTheme.Light;
+                MakeNewListText.RequestedTheme = ElementTheme.Light;
+                Header.RequestedTheme = ElementTheme.Light;
+                ListDialog.RequestedTheme = ElementTheme.Light;
+                RenameDialog.RequestedTheme = ElementTheme.Light;
+                ItemsList.RequestedTheme = ElementTheme.Light;
+
+
+
             }
             
         }

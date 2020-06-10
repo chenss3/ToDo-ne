@@ -12,14 +12,11 @@
 
 
     <Grid  Background="#FFC1E2E0">
-        <Grid.ColumnDefinitions>
 
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
-
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -39,7 +36,7 @@
                 <DataTemplate x:DataType="data:ToDoItem">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="20" Text="{x:Bind Title}" />
-                        <TextBlock FontSize="16" Text="{x:Bind Date}" />
+                        <TextBlock FontSize="16" Text="{x:Bind StringDate}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -55,9 +52,10 @@
         </StackPanel>
 
         <!-- Displays the title of my list -->
-        <TextBlock Name="ListName" FontSize= "36" Grid.Row="0" VerticalAlignment="Bottom" Margin ="20, 40, 0, 0"/>
+        <TextBlock Name="ListName" FontSize= "36" Grid.Row="0" VerticalAlignment="Bottom" Margin ="36,0,-16,0" />
 
-        <muxc:DropDownButton AutomationProperties.Name="More" VerticalAlignment="Top" HorizontalAlignment="Right">
+        <!-- Drop down menu for more options-->
+        <muxc:DropDownButton AutomationProperties.Name="More" VerticalAlignment="Top" HorizontalAlignment="Right" ToolTipService.ToolTip="More">
             <muxc:DropDownButton.Content>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;"  FontSize="36"/>
             </muxc:DropDownButton.Content>

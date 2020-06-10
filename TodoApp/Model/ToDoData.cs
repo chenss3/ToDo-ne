@@ -83,5 +83,10 @@ namespace TodoApp.Model
             get; set;
         }
 
+        public String StringDate
+        {
+            get; set;
+        }
+
     }
 }
