@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="TodoApp.NewThing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TodoApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#FFE2FCF5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+
+        <Rectangle Fill="#FF89ADA3" VerticalAlignment="Top" Height="49" />
+
+        <!-- Displays go back button. Will display Flyout if user has written an incomplete task -->
+        <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" FontSize="36" ToolTipService.ToolTip="Back" Grid.Row="0" VerticalAlignment="Top" >
+            <Button.Flyout>
+                <Flyout>
+                    <StackPanel>
+                        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Incomplete task. Do you want to continue?" Margin="0,0,0,12" />
+                        <Button Name ="DeleteConfirmation" Click="DeleteConfirmation_Click" Content="Yes, do not add this task" />
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+        <TextBlock Text="New task" FontSize="25" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+        
+        <!-- Prompts user for task -->
+        <TextBox Name ="InputBox" FontSize ="25" PlaceholderText="Name of the task" VerticalAlignment="Bottom" Width="350" TextAlignment="Center"/>
+        <Button Name ="Done" Content ="Done" Click="Done_Click" FontSize ="28" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0" Height="53"/>
+
+
+        <CalendarDatePicker Name="Cal" FontSize="25" PlaceholderText="Pick a date" Grid.Row="1" Width="250" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Page>

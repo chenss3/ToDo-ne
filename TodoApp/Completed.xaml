@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="TodoApp.Completed"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TodoApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:TodoApp.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#FFC1E2E0">
+        
+        <ListView x:Name="DoneItemsList" ItemsSource="{x:Bind doneData}" SelectionMode="Multiple" Grid.Row="1" Grid.RowSpan="2" Margin ="20, 40, 0, 0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="0, 30, 34, 5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:ToDoItem">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="20" Text="{x:Bind Title}" />
+                        <TextBlock FontSize="16" Text="{x:Bind Date}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
