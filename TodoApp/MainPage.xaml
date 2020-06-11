@@ -33,20 +33,20 @@
 
 
         <!-- Will display the day/night background image-->
-        <Image Name="Day" Source="/Assets/sunbg4.png" Grid.RowSpan="5" Margin="0,-131,0,-611" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Visible"/>
+        <Image Name="Day" Source="/Assets/sunbgfinal.png" Grid.RowSpan="5" Margin="0,-131,0,-611" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Visible"/>
 
         <Rectangle Name="BGRect" Stretch="UniformToFill" Grid.RowSpan="4" Visibility="Collapsed">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF183456" Offset="0.12"/>
+                    <GradientStop Color="#FF0C213A" Offset="0.365"/>
                     <GradientStop Color="Transparent" Offset="1"/>
-                    <GradientStop Color="#C17CA1CE" Offset="0.523"/>
+                    <GradientStop Color="#C13B5371" Offset="0.851"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Name="Night" Source="/Assets/moonbg2.png" Grid.RowSpan="5" Margin="0,-131,0,-611" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+        <Image Name="Night" Source="/Assets/nightbgfinal.png" Grid.RowSpan="5" Margin="0,-131,0,-611" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
 
-        <TextBlock Name ="Header" Text="Welcome!" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Name ="Header" Text="Welcome!" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
         <!-- Controls the make new list button -->
